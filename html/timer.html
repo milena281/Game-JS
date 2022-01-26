@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var c = 0;
+        var t;
+        var timer_is_on = 0;
+
+        function timeCount() {
+            document.getElementById('txt').value = c;
+            c = c + 1;
+            t = setTimeout("timedCount()",1000);
+
+        }
+
+        function doTimer() {
+            if (!timer_is_on) {
+                timer_is_on = 1;
+                timedCount();
+
+            }
+        }
+
+        function stopCount() {
+            clearTimeout(t);
+            timer_is_on = 0;
+        }
+
+    </script>
+
+    <form action="">
+        <input type="button" value="Start" onclick="doTimer()">
+        <input type="text" id="txt">
+        <input type="button" value="Stop" onclick="stopCount()">
+    </form>
+    <p>
+        Start && Stop
+    </p>
+</body>
+</html>
